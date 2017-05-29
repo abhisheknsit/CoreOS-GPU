@@ -11,7 +11,7 @@ sudo mkdir -p $PREFIX/lib64
 sudo chown -R $USER:root $PREFIX
 rm -rf nvidia-docker
 git clone https://github.com/nvidia/nvidia-docker
-cd nvidia-docker/tools
+cd nvidia-docker
 sed -i -e "s/os.Link/Copy/" src/nvidia/volumes.go
 docker rmi nvdocker-build
 docker build --build-arg UID=`id -u $USER` -t nvdocker-build -f Dockerfile.build .
